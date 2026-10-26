@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 import { resolve } from "node:path";
 
 export default defineConfig({
-  base: "/",
+  // GitHub Pages serves this repository under /Webgl/.
+  base: "/Webgl/",
   build: {
     rollupOptions: {
       input: {
