@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100d19" />
+    <meta name="description" content="A WebGL-powered creative studio portfolio exploring design, motion and interactive digital experiences." />
+    <title>FORM / Digital experiences</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="preloader" aria-hidden="true"><span class="preloader-mark">F.</span><div class="preloader-track"><i></i></div><span class="preloader-label">PREPARING THE EXPERIENCE</span></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="wordmark" href="/" aria-label="FORM home">F<span>ORM</span><b>®</b></a>
+        <span class="topbar-note">INDEPENDENT DIGITAL STUDIO<br />DESIGN × MOTION × TECHNOLOGY</span>
+        <nav class="topnav" aria-label="Main navigation">
+          <a class="nav-link active" href="#work">WORK <sup>16</sup></a>
+          <a class="nav-link" href="about.html">STUDIO</a>
+          <a class="nav-link" href="contact.html">LET'S TALK <span class="arrow">↗</span></a>
+        </nav>
+        <button class="sound-toggle" id="motionToggle" type="button" aria-pressed="true"><span class="sound-dot"></span> MOTION ON</button>
+      </header>
+
+      <main id="work">
+        <section class="intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> SELECTED WORK / 2022—2026</div>
+          <h1>Digital work.<br /><em>Physical feeling.</em></h1>
+          <p class="intro-copy">We shape brands and build interactive experiences where design, technology and motion become one.</p>
+          <div class="intro-side"><span>SCROLL OR DRAG TO EXPLORE</span><span class="mouse-glyph">↘</span></div>
+        </section>
+
+        <section class="showcase" aria-label="Interactive project carousel">
+          <div class="scene-vignette"></div>
+          <div id="webgl-root" class="webgl-root" aria-label="Interactive three-dimensional project gallery"></div>
+          <div class="scene-grid" aria-hidden="true"></div>
+          <div class="scene-caption"><span>FORM® / PROJECT ARCHIVE</span><span id="sceneStatus">REAL-TIME 3D ENVIRONMENT</span></div>
+          <button class="scene-arrow scene-arrow-left" id="prevProject" aria-label="Previous project" type="button">↖</button>
+          <button class="scene-arrow scene-arrow-right" id="nextProject" aria-label="Next project" type="button">↗</button>
+          <div class="project-hud">
+            <div class="project-count"><span id="currentIndex">01</span><i></i><span id="totalCount">16</span></div>
+            <div class="project-meta">
+              <span class="meta-kicker" id="projectType">DIGITAL EXPERIENCE / 2026</span>
+              <h2 id="projectTitle">Aster<br /><em>House</em></h2>
+              <p id="projectDescription">A new visual language for a world in motion.</p>
+              <div class="project-tags" id="projectTags"><span>ART DIRECTION</span><span>WEBGL</span><span>MOTION</span></div>
+            </div>
+            <button id="openProject" class="view-project" type="button">EXPLORE PROJECT <span>↗</span></button>
+          </div>
+          <div class="gallery-progress" id="galleryProgress" aria-label="Select a project"></div>
+          <div class="drag-hint"><span class="drag-icon">↔</span> DRAG TO ROTATE</div>
+        </section>
+
+        <section class="manifesto">
+          <div class="eyebrow"><span class="eyebrow-line"></span> OUR POINT OF VIEW</div>
+          <p>Not more noise.<br />More <span class="manifesto-accent">meaning</span> in every<br />pixel, movement and moment.</p>
+          <a href="about.html" class="text-link">GET TO KNOW THE STUDIO <span>↗</span></a>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <a class="wordmark footer-mark" href="/">F<span>ORM</span><b>®</b></a>
+        <span>INDEPENDENT BY NATURE. DIGITAL BY DESIGN.</span>
+        <a href="contact.html">HAVE A GOOD IDEA? <span>LET'S TALK ↗</span></a>
+        <span class="footer-year">© FORM 2026</span>
+      </footer>
+    </div>
+
+    <dialog id="projectDialog" class="project-dialog">
+      <button class="dialog-close" id="closeDialog" aria-label="Close project details">×</button>
+      <span class="eyebrow"><span class="eyebrow-line"></span> PROJECT FILE / <span id="dialogNumber">01</span></span>
+      <h2 id="dialogTitle">Aster House</h2>
+      <p id="dialogDescription">A new visual language for a world in motion.</p>
+      <div class="dialog-details"><div><span>DISCIPLINES</span><b id="dialogScope">Art direction, WebGL, Motion</b></div><div><span>TECHNOLOGY</span><b>Three.js · GSAP · Vite</b></div><div><span>YEAR</span><b id="dialogYear">2026</b></div></div>
+      <p class="dialog-note">Concept project created for this original portfolio demo. Brand names and visuals are fictional.</p>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
