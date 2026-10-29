@@ -4,10 +4,10 @@ Responsive multi-page freelancer marketplace concept for GitHub Pages.
 
 ## Pages
 - `index.html` — homepage, featured profiles and search
-- `talent.html` — searchable sample talent directory and category filters
+- `talent.html` — searchable sample talent directory, including four Travel & Tourism role examples
 - `categories.html` — starting service-category directory
 - `travel-tourism.html` — detailed Travel & Tourism industry directory: eight service areas, freelance roles, deliverables and official software/provider links
-- `projects.html` — sample project briefs, budget ranges, skills and filters
+- `projects.html` — sample project briefs, including travel itinerary, hotel listing and destination content briefs
 - `how-it-works.html` — briefing, discovery, agreement and delivery workflow
 - `about.html` — product concept and scope
 - `contact.html` — project enquiry form preview
