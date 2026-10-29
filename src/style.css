@@ -90,3 +90,49 @@
 .auth-switch{font-size:10px!important}.auth-switch a{text-decoration:underline;font-weight:700}
 @media(max-width:760px){.page-hero{padding:52px 5% 35px}.page-hero h1{font-size:clamp(48px,12vw,70px)}.category-directory{grid-template-columns:1fr;padding:40px 5% 65px;gap:25px}.category-index{position:static;border-right:0;border-bottom:1px solid var(--line);padding:0 0 15px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.category-index strong{grid-column:1/-1}.category-detail-grid,.workflow{grid-template-columns:1fr}.project-directory{padding:40px 5% 65px}.project-directory-head{align-items:flex-start;flex-direction:column}.project-list-card{grid-template-columns:35px 1fr;gap:12px}.project-list-budget{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap}.project-list-budget .btn{margin-top:0}.about-content,.contact-layout,.auth-layout{grid-template-columns:1fr;gap:30px;padding:45px 5% 65px}.auth-art{min-height:370px;padding:30px}.auth-form{padding:0}.cta-band{padding:35px 5%}.directory-help{align-items:flex-start;flex-direction:column}.directory-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.directory-section{padding-left:5%;padding-right:5%}}
 @media(max-width:420px){.directory-grid{grid-template-columns:1fr}.talent-image{height:220px}.category-detail{padding:18px}.project-list-copy h2{font-size:16px}.project-list-budget{gap:8px}}
+
+/* Travel & Tourism industry directory */
+.travel-hero{background:#e9eee3}
+.travel-hero h1 em{color:#61734e}
+.travel-hero-stats{display:flex;gap:42px;margin-top:34px;padding-top:22px;border-top:1px solid #d1d9c8;max-width:520px}
+.travel-hero-stats div{display:flex;flex-direction:column;gap:4px}
+.travel-hero-stats strong{font-family:Manrope,sans-serif;font-size:28px;letter-spacing:-.06em}
+.travel-hero-stats span{font-size:9px;color:#687260}
+.travel-intro{padding:54px 6.1%;display:grid;grid-template-columns:.9fr 1.1fr;gap:8%;align-items:start;border-bottom:1px solid var(--line)}
+.travel-intro h2{font-family:Manrope,sans-serif;font-size:clamp(32px,4.4vw,49px);letter-spacing:-.07em;line-height:1.04;margin:18px 0}
+.travel-intro h2 em{font-family:var(--serif);font-weight:400;color:#718060}
+.travel-intro>p{font-size:12px;line-height:2;color:#6f766a;margin:0}
+.travel-layout{display:grid;grid-template-columns:225px minmax(0,1fr);gap:40px;padding:60px 6.1% 85px;align-items:start}
+.travel-index{position:sticky;top:24px;display:flex;flex-direction:column;gap:13px;border-right:1px solid var(--line);padding-right:20px}
+.travel-index strong{font-size:8px;letter-spacing:.13em;margin-bottom:8px}
+.travel-index a{font-size:10px;line-height:1.5;color:#70776b}
+.travel-index a:hover{color:var(--ink)}
+.travel-main{min-width:0}
+.travel-area{padding:28px 0 32px;border-bottom:1px solid var(--line);scroll-margin-top:25px}
+.travel-area:first-child{padding-top:0}
+.travel-area-head{display:flex;align-items:center;justify-content:space-between;color:#7b8374;font-size:8px;letter-spacing:.13em;font-weight:800}
+.travel-area-icon{display:grid;place-items:center;width:39px;height:39px;border-radius:50%;background:#e9eee3;color:#293426;font-size:20px}
+.travel-area h2,.travel-software-directory h2{font-family:Manrope,sans-serif;font-size:clamp(24px,3vw,35px);letter-spacing:-.065em;line-height:1.1;margin:19px 0 10px}
+.travel-area>p{font-size:11px;line-height:1.9;color:#70776b;max-width:800px}
+.travel-columns{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+.travel-columns h3{font-size:10px;margin:0 0 10px}
+.travel-columns ul{padding-left:16px;margin:0}
+.travel-columns li{font-size:10px;line-height:1.9;color:#70776b;padding-left:2px}
+.software-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:20px}
+.software-chips a{display:inline-flex;padding:8px 10px;background:#eef0e9;border:1px solid #e1e4da;border-radius:3px;font-size:9px;font-weight:700;color:#333b2f}
+.software-chips a:hover{background:#d9ff61;border-color:#d9ff61}
+.travel-caution{padding:12px 14px;border-left:2px solid #d9ff61;background:#f0f1eb}
+.travel-software-directory{padding:45px 0 20px;scroll-margin-top:25px}
+.travel-software-directory>p{font-size:11px;line-height:1.9;color:#70776b}
+.travel-software-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:22px}
+.travel-software-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:17px;border:1px solid var(--line);background:#fff;border-radius:3px;min-height:126px}
+.travel-software-card strong{font-family:Manrope,sans-serif;font-size:15px;letter-spacing:-.03em}
+.travel-software-card span{font-size:10px;line-height:1.7;color:#73796e}
+.travel-software-card b{font-size:9px;margin-top:auto}
+.travel-software-card:hover{border-color:#9eac8d;transform:translateY(-2px)}
+.travel-brief{margin:45px 0 0;padding:32px;background:#20271f;color:#fff;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.travel-brief h2{font-family:Manrope,sans-serif;font-size:clamp(27px,3.6vw,39px);line-height:1.08;letter-spacing:-.07em;margin:17px 0 12px}
+.travel-brief h2 em{font-family:var(--serif);font-weight:400;color:var(--lime)}
+.travel-brief p{font-size:11px;line-height:1.9;color:#c0c7bb;max-width:560px}
+.travel-brief-actions{display:flex;flex-direction:column;gap:10px;align-items:stretch}
+@media(max-width:760px){.travel-intro{grid-template-columns:1fr;gap:12px;padding:40px 5%}.travel-layout{grid-template-columns:1fr;padding:40px 5% 60px;gap:25px}.travel-index{position:static;border-right:0;border-bottom:1px solid var(--line);padding:0 0 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.travel-index strong{grid-column:1/-1}.travel-columns{grid-template-columns:1fr;gap:15px}.travel-software-grid{grid-template-columns:1fr}.travel-brief{grid-template-columns:1fr;padding:25px}.travel-brief-actions{align-items:flex-start}.travel-hero-stats{gap:25px}.travel-area h2{font-size:27px}}
