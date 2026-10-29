@@ -14,13 +14,14 @@ Responsive multi-page freelancer marketplace concept for GitHub Pages.
 - `contact.html` — project enquiry form preview
 - `join.html` — registration UI preview
 - `login.html` — sign-in UI preview
+- `admin.html` — admin dashboard UI preview with sample member/project moderation tabs
 
 ## Run locally
 - `npm install`
 - `npm run dev`
 - `npm run build`
 
-Vite is configured to build all eleven HTML entry pages using the `/Webgl/` base path for GitHub Pages.
+Vite is configured to build all twelve HTML entry pages using the `/Webgl/` base path for GitHub Pages.
 
 ## Scope
 Frontend-only demonstration. Profiles, rates and projects are sample content. Forms show demo feedback only. Authentication, database, messaging, project applications, contracts and payments are not connected. The demo does not send or persist submitted personal information.
