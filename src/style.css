@@ -136,3 +136,19 @@
 .travel-brief p{font-size:11px;line-height:1.9;color:#c0c7bb;max-width:560px}
 .travel-brief-actions{display:flex;flex-direction:column;gap:10px;align-items:stretch}
 @media(max-width:760px){.travel-intro{grid-template-columns:1fr;gap:12px;padding:40px 5%}.travel-layout{grid-template-columns:1fr;padding:40px 5% 60px;gap:25px}.travel-index{position:static;border-right:0;border-bottom:1px solid var(--line);padding:0 0 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.travel-index strong{grid-column:1/-1}.travel-columns{grid-template-columns:1fr;gap:15px}.travel-software-grid{grid-template-columns:1fr}.travel-brief{grid-template-columns:1fr;padding:25px}.travel-brief-actions{align-items:flex-start}.travel-hero-stats{gap:25px}.travel-area h2{font-size:27px}}
+
+/* Travel role map */
+.role-map-intro{padding:52px 6.1%;display:grid;grid-template-columns:.9fr 1.1fr;gap:8%;border-bottom:1px solid var(--line)}
+.role-map-intro h2{font-family:Manrope,sans-serif;font-size:clamp(32px,4.4vw,49px);letter-spacing:-.07em;line-height:1.04;margin:18px 0}
+.role-map-intro h2 em{font-family:var(--serif);font-weight:400;color:#718060}
+.role-map-intro>p{font-size:12px;line-height:2;color:#6f766a;margin:0}
+.role-map{display:grid;grid-template-columns:225px minmax(0,1fr);gap:40px;padding:55px 6.1% 80px;align-items:start}
+.role-map-index{position:sticky;top:24px;display:flex;flex-direction:column;gap:13px;border-right:1px solid var(--line);padding-right:20px}
+.role-map-index strong{font-size:8px;letter-spacing:.13em;margin-bottom:8px}.role-map-index a{font-size:10px;line-height:1.5;color:#70776b}.role-map-index a:hover{color:var(--ink)}
+.role-map-content{min-width:0}.role-workstream{padding:27px 0 32px;border-bottom:1px solid var(--line);scroll-margin-top:25px}.role-workstream:first-child{padding-top:0}
+.role-workstream-label{font-size:8px;letter-spacing:.14em;font-weight:800;color:#75836b}.role-workstream h2,.brief-checklist h2{font-family:Manrope,sans-serif;font-size:clamp(24px,3vw,35px);letter-spacing:-.065em;line-height:1.1;margin:14px 0 10px}
+.role-workstream>p{font-size:11px;line-height:1.9;color:#70776b;max-width:800px}.role-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+.role-detail-grid h3{font-size:10px;margin:0 0 10px}.role-detail-grid ul{padding-left:16px;margin:0}.role-detail-grid li{font-size:10px;line-height:1.9;color:#70776b;padding-left:2px}
+.role-tool-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:20px}.role-tool-row b{font-size:9px;margin-right:4px}.role-tool-row a{font-size:9px;padding:7px 9px;background:#eef0e9;border:1px solid #e1e4da;border-radius:3px;font-weight:700}.role-tool-row a:hover{background:var(--lime);border-color:var(--lime)}
+.brief-checklist{margin:38px 0 0;padding:30px;background:#20271f;color:#fff;scroll-margin-top:25px}.brief-checklist h2{font-size:clamp(26px,3.5vw,38px);margin:17px 0 22px}.brief-checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.brief-checklist-grid strong{font-size:10px}.brief-checklist-grid p,.role-safety-note{font-size:10px;line-height:1.9;color:#c0c7bb}.role-safety-note{border-top:1px solid #424a40;padding-top:15px;margin-top:22px}.role-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+@media(max-width:760px){.role-map-intro{grid-template-columns:1fr;gap:12px;padding:40px 5%}.role-map{grid-template-columns:1fr;padding:40px 5% 60px;gap:25px}.role-map-index{position:static;border-right:0;border-bottom:1px solid var(--line);padding:0 0 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.role-map-index strong{grid-column:1/-1}.role-detail-grid,.brief-checklist-grid{grid-template-columns:1fr;gap:15px}.brief-checklist{padding:23px}.role-cta{align-items:flex-start;flex-direction:column}}
