@@ -20,15 +20,33 @@ const adminTable=$("#adminRows");
 if(adminTable){
  let adminSection="members";
  const rows=Array.from(adminTable.querySelectorAll("tr"));
+ const adminTabs=$$(".admin-tab");
+ function updateAdminCounts(){
+  const pending=rows.filter(row=>row.querySelector(".status-pending")).length;
+  const reviewPending=rows.filter(row=>row.dataset.adminSection==="reviews"&&row.querySelector(".status-pending")).length;
+  const pendingCount=$("#pendingCount");if(pendingCount)pendingCount.textContent=String(pending);
+  const reviewBadge=$("#reviewBadge");if(reviewBadge)reviewBadge.textContent=String(reviewPending);
+  adminTabs.forEach(tab=>{const badge=tab.querySelector("span");if(!badge)return;const section=tab.dataset.adminTab;const count=rows.filter(row=>row.dataset.adminSection===section&&(section!=="reviews"||row.querySelector(".status-pending"))).length;badge.textContent=String(count)});
+ }
  function filterAdminRows(){
   const query=$("#adminSearch")?.value.trim().toLowerCase()||"";let visible=0;
   rows.forEach(row=>{const section=row.dataset.adminSection===adminSection;const match=!query||((row.dataset.search||"")+" "+row.textContent).toLowerCase().includes(query);row.hidden=!(section&&match);if(!row.hidden)visible++});
   const empty=$("#adminEmpty");if(empty)empty.hidden=visible!==0;
  }
- $(".admin-tab").forEach(tab=>tab.addEventListener("click",()=>{adminSection=tab.dataset.adminTab;$(".admin-tab").forEach(item=>{const active=item===tab;item.classList.toggle("active",active);item.setAttribute("aria-selected",String(active))});filterAdminRows()}));
+ adminTabs.forEach(tab=>tab.addEventListener("click",()=>{adminSection=tab.dataset.adminTab;adminTabs.forEach(item=>{const active=item===tab;item.classList.toggle("active",active);item.setAttribute("aria-selected",String(active))});filterAdminRows()}));
  $("#adminSearch")?.addEventListener("input",filterAdminRows);
- adminTable.addEventListener("click",e=>{const button=e.target.closest("[data-admin-action]");if(!button)return;toast(button.dataset.adminAction+" — demo only; no records were changed.")});
- filterAdminRows();
+ adminTable.addEventListener("click",e=>{
+  const button=e.target.closest("[data-admin-action]");if(!button||button.disabled)return;
+  const row=button.closest("tr");const status=row?.querySelector(".status");
+  if(status){
+   status.className="status status-reviewed";status.textContent="Reviewed";
+   row.dataset.search=(row.dataset.search||"")+" reviewed complete";
+  }
+  button.disabled=true;button.textContent="Reviewed";
+  updateAdminCounts();filterAdminRows();
+  toast("Demo action completed for this session only. No real record was changed.");
+ });
+ updateAdminCounts();filterAdminRows();
 }
 
 filterTalent();filterProjects();
