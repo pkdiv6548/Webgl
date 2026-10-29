@@ -193,3 +193,5 @@
 .admin-next-steps{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;padding:40px 0 0}
 .admin-next-steps ul{margin:0;padding-left:18px}.admin-next-steps li{font-size:11px;line-height:2;color:#70776b;padding-left:3px}
 @media(max-width:760px){.admin-wrap{padding:38px 5% 60px}.admin-heading{align-items:flex-start;flex-direction:column}.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.admin-stats article{padding:15px}.admin-panel{padding:16px 12px}.admin-panel-heading{align-items:stretch;flex-direction:column}.admin-search-label{min-width:0}.admin-next-steps{grid-template-columns:1fr;gap:15px;padding-top:30px}}
+
+.status-reviewed{background:#e8e8ff;color:#4f4b85}.admin-action:disabled{opacity:.65;cursor:default;background:#f0f1eb;border-color:#e0e2d9}
