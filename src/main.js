@@ -50,3 +50,30 @@ if(adminTable){
 }
 
 filterTalent();filterProjects();
+
+
+const profilePage=$("#profileName");
+if(profilePage){
+ const profiles={
+  "maya-chen":{name:"Maya Chen",role:"Brand & Visual Identity Designer",rate:"$75 / hour · sample",intro:"Brand strategy and visual identity for early-stage teams and growing businesses.",summary:"Helps teams turn their positioning into a clear visual system that can be applied consistently across digital and print touchpoints.",skills:["Brand strategy","Visual identity","Figma","Brand guidelines","Art direction"],deliverables:["Logo and visual identity concepts","Color and typography system","Brand guideline document","Social and presentation templates"]},
+  "arjun-mehta":{name:"Arjun Mehta",role:"Full-stack Developer",rate:"$90 / hour · sample",intro:"Responsive web applications and practical product engineering for digital teams.",summary:"A sample engineering profile focused on building user-facing web experiences and connecting frontend interfaces to application logic.",skills:["React","JavaScript","Node.js","API integration","Responsive UI"],deliverables:["Responsive page implementation","Reusable UI components","API integration plan","Basic accessibility and performance review"]},
+  "sofia-rivera":{name:"Sofia Rivera",role:"Growth Marketing Strategist",rate:"$65 / hour · sample",intro:"Campaign planning, acquisition experiments and measurement for growing businesses.",summary:"A sample marketing profile that helps teams organize channel priorities, define experiments and report on outcomes.",skills:["SEO","Paid media","Analytics","Campaign planning","Conversion optimization"],deliverables:["Channel and campaign audit","90-day growth roadmap","Experiment backlog","Performance reporting template"]},
+  "jordan-lee":{name:"Jordan Lee",role:"Product & UX Designer",rate:"$80 / hour · sample",intro:"User research, interaction design and prototypes that make digital products easier to use.",summary:"A sample UX profile focused on understanding user needs and turning them into testable flows and clear interface designs.",skills:["UX research","Figma","Prototyping","User journeys","Usability testing"],deliverables:["User journey map","Wireframes and clickable prototype","Interface design handoff","Usability findings summary"]},
+  "nia-brooks":{name:"Nia Brooks",role:"Content Designer & Copywriter",rate:"$55 / hour · sample",intro:"Clear product copy, brand voice and editorial content for digital experiences.",summary:"A sample content profile helping teams make messages more useful, consistent and understandable across web and product touchpoints.",skills:["Copywriting","Content design","Brand voice","Editing","Editorial planning"],deliverables:["Website copy draft","Brand voice guide","Content audit","Editorial calendar"]},
+  "leo-fischer":{name:"Leo Fischer",role:"AI & Automation Engineer",rate:"$110 / hour · sample",intro:"Workflow automation and AI-enabled prototypes for repetitive team processes.",summary:"A sample automation profile focused on documenting workflows, evaluating practical automation opportunities and creating maintainable prototypes.",skills:["Python","Workflow automation","LLM prototypes","Process mapping","Testing"],deliverables:["Workflow map","Automation prototype plan","Test cases and edge cases","Handover notes and usage guide"]}
+ };
+ const id=new URLSearchParams(location.search).get("person")||"maya-chen";
+ const p=profiles[id]||profiles["maya-chen"];
+ document.title=p.name+" | Freelancer Profile | Freelance";
+ profilePage.textContent=p.name;
+ $("#profileIntro").textContent=p.intro;
+ $("#profileRole").textContent=p.role;
+ $("#profileSummary").textContent=p.summary;
+ $("#profileRate").textContent=p.rate;
+ const skills=$("#profileSkills");
+ p.skills.forEach(skill=>{const tag=document.createElement("span");tag.textContent=skill;skills?.appendChild(tag)});
+ const deliverables=$("#profileDeliverables");
+ p.deliverables.forEach(item=>{const li=document.createElement("li");li.textContent=item;deliverables?.appendChild(li)});
+ const contact=$("#profileContact");if(contact)contact.href="contact.html?person="+encodeURIComponent(p.name);
+}
+
