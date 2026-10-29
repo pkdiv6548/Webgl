@@ -1,131 +1,18 @@
 import "./style.css";
-
-const $ = (selector, root = document) => root.querySelector(selector);
-const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
-let activeFilter = "All";
-let activeQuery = "";
-let toastTimer;
-
-function showToast(message) {
-  const toast = $("#toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
-}
-
-function filterTalent() {
-  let visible = 0;
-  $$(".talent-card").forEach((card) => {
-    const categoryMatch = activeFilter === "All" || card.dataset.category === activeFilter;
-    const queryMatch = !activeQuery || (card.dataset.search + " " + card.textContent).toLowerCase().includes(activeQuery.toLowerCase());
-    const show = categoryMatch && queryMatch;
-    card.hidden = !show;
-    if (show) visible++;
-  });
-  $("#emptyState").hidden = visible !== 0;
-  $("#talentGrid").classList.toggle("filtered-grid", activeFilter !== "All" || Boolean(activeQuery));
-  $$(".filter-pill").forEach((button) => {
-    const active = button.dataset.filter === activeFilter;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-pressed", String(active));
-  });
-}
-
-function setFilter(filter) {
-  activeFilter = filter;
-  activeQuery = "";
-  $("#searchInput").value = "";
-  filterTalent();
-  $("#talent").scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-$("#searchForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  activeQuery = $("#searchInput").value.trim();
-  activeFilter = "All";
-  filterTalent();
-  $("#talent").scrollIntoView({ behavior: "smooth", block: "start" });
-  if (activeQuery) showToast("Showing talent matches for “" + activeQuery + "”.");
-});
-$$("[data-search]").forEach((button) => button.addEventListener("click", () => {
-  $("#searchInput").value = button.dataset.search;
-  activeQuery = button.dataset.search;
-  activeFilter = "All";
-  filterTalent();
-  $("#talent").scrollIntoView({ behavior: "smooth", block: "start" });
-}));
-$("#talentFilters").addEventListener("click", (event) => {
-  const button = event.target.closest("[data-filter]");
-  if (!button) return;
-  activeFilter = button.dataset.filter;
-  activeQuery = "";
-  $("#searchInput").value = "";
-  filterTalent();
-});
-$("#clearFilters").addEventListener("click", () => setFilter("All"));
-$$(".category-card").forEach((button) => button.addEventListener("click", () => setFilter(button.dataset.category)));
-
-$$(".save-btn").forEach((button) => button.addEventListener("click", () => {
-  const saved = button.getAttribute("aria-pressed") !== "true";
-  button.setAttribute("aria-pressed", String(saved));
-  button.textContent = saved ? "♥" : "♡";
-  button.classList.toggle("saved", saved);
-  showToast(saved ? "Profile saved for this session." : "Profile removed from saved list.");
-}));
-
-const dialog = $("#actionDialog");
-function openDialog(kind) {
-  const copy = {
-    join: ["Find your people.", "Choose how you'd like to use Freelance and start exploring the possibilities."],
-    login: ["Welcome back.", "The sign-in flow is a placeholder in this frontend-only demo."],
-    post: ["Share your next project.", "Project publishing is not connected yet. This demo shows where the flow will begin."],
-    hire: ["Find your next collaborator.", "Tell us a little about your needs to preview the hiring journey."]
-  };
-  const [heading, description] = copy[kind] || copy.join;
-  $("#dialogHeading").textContent = heading;
-  $("#dialogText").textContent = description;
-  $("#demoRole").value = kind === "hire" || kind === "post" ? "Hire independent talent" : "Find freelance work";
-  $("#formNote").textContent = "Demo only — nothing will be sent or saved.";
-  $("#demoForm").hidden = kind === "post";
-  if (typeof dialog.showModal === "function") dialog.showModal();
-  else showToast(description);
-}
-$("#joinBtn").addEventListener("click", () => openDialog("join"));
-$("#ctaJoin").addEventListener("click", () => openDialog("join"));
-$("#loginBtn").addEventListener("click", () => openDialog("login"));
-$("#postProjectBtn").addEventListener("click", () => openDialog("post"));
-$("#ctaHire").addEventListener("click", () => openDialog("hire"));
-$("#browseTalent").addEventListener("click", () => { setFilter("All"); showToast("Explore the profiles and filter by skill."); });
-$("#allCategories").addEventListener("click", () => showToast("More skill categories can be added as the marketplace expands."));
-$("#viewProjects").addEventListener("click", () => showToast("These are sample project listings. A live project board needs a backend."));
-$$(".job-action").forEach((button) => button.addEventListener("click", () => openDialog("post")));
-$("#closeAction").addEventListener("click", () => dialog.close());
-dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
-$("#demoForm").addEventListener("submit", (event) => {
-  event.preventDefault();
-  $("#formNote").textContent = "Thanks! This demo does not send or store your information.";
-  showToast("Demo form checked — no information was submitted.");
-});
-
-$("#menuToggle").addEventListener("click", () => {
-  const nav = $(".main-nav");
-  const open = nav.classList.toggle("nav-open");
-  $("#menuToggle").setAttribute("aria-expanded", String(open));
-});
-$$(".main-nav a").forEach((link) => link.addEventListener("click", () => $(".main-nav").classList.remove("nav-open")));
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("in-view");
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-$$(".talent-card, .category-card, .steps article, .job-card").forEach((item) => {
-  item.classList.add("reveal");
-  revealObserver.observe(item);
-});
-
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+let activeFilter="All",activeQuery="",toastTimer;
+function toast(message){const el=$("#toast");if(!el)return;el.textContent=message;el.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove("show"),3200)}
+function filterTalent(){let count=0;$$(".talent-card").forEach(card=>{const category=activeFilter==="All"||card.dataset.category===activeFilter;const query=!activeQuery||(card.dataset.search+" "+card.textContent).toLowerCase().includes(activeQuery.toLowerCase());card.hidden=!(category&&query);if(!card.hidden)count++});$("#emptyState")&&($("#emptyState").hidden=count!==0);$("#resultCount")&&($("#resultCount").textContent=count+" sample profile"+(count===1?"":"s"));$$(".filter-pill").forEach(b=>{const on=b.dataset.filter===activeFilter;b.classList.toggle("active",on);b.setAttribute("aria-pressed",String(on))})}
+const searchForm=$("#searchForm");if(searchForm){const input=$("#searchInput");const params=new URLSearchParams(location.search);if(input&&params.has("q"))input.value=params.get("q");activeQuery=input?.value.trim()||"";searchForm.addEventListener("submit",e=>{if($("#talentGrid")){e.preventDefault();activeQuery=input.value.trim();activeFilter="All";filterTalent();toast(activeQuery?"Showing results for “"+activeQuery+"”.":"Showing all talent.");}else if(input&&input.value.trim()){e.preventDefault();location.href="talent.html?q="+encodeURIComponent(input.value.trim())}})}
+$("#talentFilters")?.addEventListener("click",e=>{const b=e.target.closest("[data-filter]");if(!b)return;activeFilter=b.dataset.filter;activeQuery="";if($("#searchInput"))$("#searchInput").value="";filterTalent()});
+$$(".save-btn").forEach(b=>b.addEventListener("click",()=>{const saved=b.getAttribute("aria-pressed")!=="true";b.setAttribute("aria-pressed",String(saved));b.textContent=saved?"♥":"♡";b.classList.toggle("saved",saved);toast(saved?"Profile saved for this session.":"Profile removed from saved list.")}));
+$("#projectFilter")?.addEventListener("change",e=>{const val=e.target.value;$$(".project-list-card").forEach(c=>c.hidden=val!=="All"&&c.dataset.category!==val);});
+const projectData=[["Build a brand identity for a climate startup","Shape a visual system including logo, typography, color and brand guidelines."],["Launch-ready landing page in React","Turn polished design screens into a fast, responsive and accessible marketing website."],["Make complex ideas feel simple","Create onboarding copy, help content and in-product messaging with a product team."],["Build a practical SEO content plan","Audit existing content and map search intent into a 90-day editorial roadmap."],["Refresh a boutique tour operator website","Improve destination pages, itinerary structure and enquiry journeys for a travel company."],["Organize a small team's project workspace","Set up a project hub, reusable templates and simple status reporting."]];
+const pd=$("#projectDialog");$$(".project-details").forEach(b=>b.addEventListener("click",()=>{const d=projectData[Number(b.dataset.project)];if(!d)return;$("#projectDialogTitle").textContent=d[0];$("#projectDialogText").textContent=d[1];pd?.showModal()}));$("#closeProjectDialog")?.addEventListener("click",()=>pd.close());pd?.addEventListener("click",e=>{if(e.target===pd)pd.close()});
+$("#menuToggle")?.addEventListener("click",()=>{const nav=$(".main-nav");if(!nav)return;const open=nav.classList.toggle("nav-open");$("#menuToggle").setAttribute("aria-expanded",String(open))});$$(".main-nav a").forEach(a=>a.addEventListener("click",()=>$(".main-nav")?.classList.remove("nav-open")));
+function demoForm(id,noteId,message){const f=$(id);f?.addEventListener("submit",e=>{e.preventDefault();const n=$(noteId);if(n)n.textContent=message;toast(message)})}
+demoForm("#contactForm","#contactFormNote","Demo only — no enquiry was sent or stored.");
+demoForm("#joinForm","#joinNote","Demo only — no account was created or stored.");
+demoForm("#loginForm","#loginNote","Demo only — authentication is not connected.");
+$$(".talent-card,.category-detail,.category-card,.workflow article,.project-list-card").forEach(el=>{el.classList.add("reveal");if("IntersectionObserver"in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in-view");o.unobserve(e.target)}}),{threshold:.08});o.observe(el)}else el.classList.add("in-view")});
 filterTalent();
