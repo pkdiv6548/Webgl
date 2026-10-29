@@ -15,4 +15,20 @@ demoForm("#contactForm","#contactFormNote","Demo only — no enquiry was sent or
 demoForm("#joinForm","#joinNote","Demo only — no account was created or stored.");
 demoForm("#loginForm","#loginNote","Demo only — authentication is not connected.");
 $$(".talent-card,.category-detail,.category-card,.workflow article,.project-list-card").forEach(el=>{el.classList.add("reveal");if("IntersectionObserver"in window){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in-view");o.unobserve(e.target)}}),{threshold:.08});o.observe(el)}else el.classList.add("in-view")});
+
+const adminTable=$("#adminRows");
+if(adminTable){
+ let adminSection="members";
+ const rows=Array.from(adminTable.querySelectorAll("tr"));
+ function filterAdminRows(){
+  const query=$("#adminSearch")?.value.trim().toLowerCase()||"";let visible=0;
+  rows.forEach(row=>{const section=row.dataset.adminSection===adminSection;const match=!query||((row.dataset.search||"")+" "+row.textContent).toLowerCase().includes(query);row.hidden=!(section&&match);if(!row.hidden)visible++});
+  const empty=$("#adminEmpty");if(empty)empty.hidden=visible!==0;
+ }
+ $(".admin-tab").forEach(tab=>tab.addEventListener("click",()=>{adminSection=tab.dataset.adminTab;$(".admin-tab").forEach(item=>{const active=item===tab;item.classList.toggle("active",active);item.setAttribute("aria-selected",String(active))});filterAdminRows()}));
+ $("#adminSearch")?.addEventListener("input",filterAdminRows);
+ adminTable.addEventListener("click",e=>{const button=e.target.closest("[data-admin-action]");if(!button)return;toast(button.dataset.adminAction+" — demo only; no records were changed.")});
+ filterAdminRows();
+}
+
 filterTalent();filterProjects();
