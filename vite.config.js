@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
 
-const pages = ["index", "talent", "categories", "projects", "how-it-works", "about", "contact", "join", "login"];
+const pages = ["index", "talent", "categories", "projects", "how-it-works", "about", "contact", "join", "login", "travel-tourism"];
 
 export default defineConfig({
   base: "/Webgl/",
