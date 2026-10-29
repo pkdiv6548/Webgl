@@ -1,13 +1,15 @@
 import { defineConfig } from "vite";
+import { resolve } from "node:path";
 
-// This repository is published under the GitHub Pages /Webgl/ path.
+const pages = ["index", "talent", "categories", "projects", "how-it-works", "about", "contact", "join", "login"];
+
 export default defineConfig({
   base: "/Webgl/",
   build: {
     rollupOptions: {
-      input: {
-        home: "index.html"
-      }
+      input: Object.fromEntries(
+        pages.map((name) => [name, resolve(process.cwd(), name + ".html")])
+      )
     }
   }
 });
