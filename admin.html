@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Admin dashboard preview for the Freelance marketplace concept.">
+<title>Admin Dashboard | Freelance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+<div class="announcement"><span class="announcement-dot"></span> ADMIN PREVIEW · DEMO DATA ONLY <a href="index.html">Return to marketplace ↗</a></div>
+<header class="header"><a class="brand" href="index.html"><span class="brand-mark">f<span>.</span></span> freelance</a><nav class="main-nav" aria-label="Main navigation"><a href="talent.html">Find talent</a><a href="projects.html">Find work</a><a href="categories.html">Explore skills</a></nav><div class="header-actions"><a class="btn btn-quiet" href="login.html">Log in</a><a class="btn btn-dark" href="join.html">Registration ↗</a><button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button></div></header>
+<main class="admin-wrap">
+<section class="admin-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> MARKETPLACE CONTROL CENTER</div><h1>Admin <em>dashboard.</em></h1><p>Preview user, project and moderation workflows using illustrative sample records.</p></div><span class="admin-demo-badge">● DEMO MODE</span></section>
+<div class="admin-warning" role="note"><strong>Important:</strong> This is a public frontend preview, not a secure admin system. No real users, permissions or records are connected. Do not enter private data.</div>
+<section class="admin-stats" aria-label="Marketplace overview">
+<article><span>Sample members</span><strong>128</strong><small>Illustrative dashboard metric</small></article>
+<article><span>Project briefs</span><strong>34</strong><small>Illustrative dashboard metric</small></article>
+<article><span>Pending review</span><strong id="pendingCount">6</strong><small>Demo moderation queue</small></article>
+<article><span>Open reports</span><strong>3</strong><small>Sample safety reports</small></article>
+</section>
+<section class="admin-panel">
+<div class="admin-panel-heading"><div><div class="eyebrow">WORKSPACE</div><h2>Manage marketplace records</h2></div><label class="admin-search-label" for="adminSearch">Search records<input id="adminSearch" type="search" placeholder="Name, email or project"></label></div>
+<div class="admin-tabs" role="tablist" aria-label="Admin sections"><button class="admin-tab active" role="tab" aria-selected="true" data-admin-tab="members">Members <span>4</span></button><button class="admin-tab" role="tab" aria-selected="false" data-admin-tab="projects">Projects <span>3</span></button><button class="admin-tab" role="tab" aria-selected="false" data-admin-tab="reviews">Needs review <span id="reviewBadge">3</span></button></div>
+<div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>Record</th><th>Type</th><th>Status</th><th>Joined / created</th><th>Demo action</th></tr></thead><tbody id="adminRows">
+<tr data-admin-section="members" data-search="maya chen maya@example.test freelancer active"><td><strong>Maya Chen</strong><small>maya@example.test</small></td><td>Freelancer</td><td><span class="status status-active">Active</span></td><td>Oct 22, 2026</td><td><button class="admin-action" data-admin-action="Review profile">Review</button></td></tr>
+<tr data-admin-section="members" data-search="arjun mehta arjun@example.test freelancer active"><td><strong>Arjun Mehta</strong><small>arjun@example.test</small></td><td>Freelancer</td><td><span class="status status-active">Active</span></td><td>Oct 24, 2026</td><td><button class="admin-action" data-admin-action="Review profile">Review</button></td></tr>
+<tr data-admin-section="members" data-search="northstar travel northstar@example.test client pending"><td><strong>Northstar Travel</strong><small>northstar@example.test</small></td><td>Client</td><td><span class="status status-pending">Pending</span></td><td>Oct 26, 2026</td><td><button class="admin-action" data-admin-action="Review account">Review</button></td></tr>
+<tr data-admin-section="members" data-search="nia brooks nia@example.test freelancer active"><td><strong>Nia Brooks</strong><small>nia@example.test</small></td><td>Freelancer</td><td><span class="status status-active">Active</span></td><td>Oct 28, 2026</td><td><button class="admin-action" data-admin-action="Review profile">Review</button></td></tr>
+<tr data-admin-section="projects" data-search="travel itinerary supplier comparison project pending"><td><strong>Travel itinerary &amp; supplier comparison</strong><small>Project brief · $250–500</small></td><td>Project</td><td><span class="status status-pending">Pending</span></td><td>Oct 27, 2026</td><td><button class="admin-action" data-admin-action="Review project">Review</button></td></tr>
+<tr data-admin-section="projects" data-search="hotel listings guest information project published"><td><strong>Hotel listings audit</strong><small>Project brief · $400–750</small></td><td>Project</td><td><span class="status status-active">Published</span></td><td>Oct 25, 2026</td><td><button class="admin-action" data-admin-action="Review project">Review</button></td></tr>
+<tr data-admin-section="projects" data-search="destination pages tour operator project draft"><td><strong>Destination pages for tour operator</strong><small>Project brief · $500–900</small></td><td>Project</td><td><span class="status status-draft">Draft</span></td><td>Oct 23, 2026</td><td><button class="admin-action" data-admin-action="Review project">Review</button></td></tr>
+<tr data-admin-section="reviews" data-search="profile report verification pending review"><td><strong>Profile verification queue</strong><small>3 sample profiles awaiting checks</small></td><td>Safety</td><td><span class="status status-pending">Needs review</span></td><td>Oct 28, 2026</td><td><button class="admin-action" data-admin-action="Open verification queue">Open queue</button></td></tr>
+<tr data-admin-section="reviews" data-search="project report duplicate misleading content review"><td><strong>Reported project listing</strong><small>Sample report · content concern</small></td><td>Report</td><td><span class="status status-pending">Needs review</span></td><td>Oct 28, 2026</td><td><button class="admin-action" data-admin-action="Inspect report">Inspect</button></td></tr>
+<tr data-admin-section="reviews" data-search="client account identity check review"><td><strong>Client identity check</strong><small>Sample account · review requested</small></td><td>Verification</td><td><span class="status status-pending">Needs review</span></td><td>Oct 27, 2026</td><td><button class="admin-action" data-admin-action="Inspect verification">Inspect</button></td></tr>
+</tbody></table><div class="admin-empty" id="adminEmpty" hidden>No matching demo records. Try a different search.</div></div>
+<div class="admin-footnote">Actions only show demo feedback. They do not change account status, publish listings, send messages or store data.</div>
+</section>
+<section class="admin-next-steps"><div><div class="eyebrow">WHEN CONNECTING A REAL BACKEND</div><h2>Production admin requires server-side access control.</h2></div><ul><li>Protected administrator sign-in and role-based permissions</li><li>Database-backed member, project and report records</li><li>Audit logs for moderation and account changes</li><li>Validated APIs, rate limits and secure session handling</li></ul></section>
+</main>
+<footer class="footer"><a class="brand footer-brand" href="index.html"><span class="brand-mark">f<span>.</span></span> freelance</a><span>INDEPENDENT BY NATURE. BETTER TOGETHER.</span><div><a href="talent.html">Find talent</a><a href="projects.html">Find work</a><a href="join.html">Registration</a><a href="login.html">Log in</a></div><small>© 2026 Freelance concept. Admin preview only.</small></footer><div class="toast" id="toast" role="status" aria-live="polite"></div><script type="module" src="/src/main.js"></script></body></html>
