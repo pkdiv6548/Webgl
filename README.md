@@ -1,20 +1,25 @@
 # Freelance Marketplace — Frontend
 
-A multi-page, responsive freelancer marketplace concept in the existing Webgl repository.
+Responsive multi-page freelancer marketplace concept for GitHub Pages.
 
 ## Pages
-- `index.html` — marketplace homepage
-- `talent.html` — searchable talent directory with category filters and session-only save controls
-- `categories.html` — nine detailed service categories, common service areas and tools (including Travel & Tourism)
-- `projects.html` — sample project briefs, skill tags, budget ranges and discipline filter
+- `index.html` — homepage, featured profiles and search
+- `talent.html` — searchable sample talent directory and category filters
+- `categories.html` — starting service-category directory
+- `travel-tourism.html` — detailed Travel & Tourism industry directory: eight service areas, freelance roles, deliverables and official software/provider links
+- `projects.html` — sample project briefs, budget ranges, skills and filters
 - `how-it-works.html` — briefing, discovery, agreement and delivery workflow
 - `about.html` — product concept and scope
 - `contact.html` — project enquiry form preview
 - `join.html` — registration UI preview
 - `login.html` — sign-in UI preview
 
-## Stack and local run
-Vite, vanilla HTML/CSS/JavaScript. Run `npm install`, `npm run dev`; build with `npm run build`. The existing GitHub Pages workflow publishes `dist/` and the Vite base path is `/Webgl/`.
+## Run locally
+- `npm install`
+- `npm run dev`
+- `npm run build`
+
+Vite is configured to build all ten HTML entry pages using the `/Webgl/` base path for GitHub Pages.
 
 ## Scope
-This is frontend-only. Talent and project entries are sample content. Forms show local demo feedback only; authentication, database, messaging, applications, contracts and payments are not connected. The demo does not send or persist submitted personal information.
+Frontend-only demonstration. Profiles, rates and projects are sample content. Forms show demo feedback only. Authentication, database, messaging, project applications, contracts and payments are not connected. The demo does not send or persist submitted personal information.
